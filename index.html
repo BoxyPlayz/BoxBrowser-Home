@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search the Web Menu</title>
+  <style>
+
+    body{
+      background-color:rgb(8, 0, 255)
+    }
+
+    h1{
+      font-size: 300%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+.search-button {
+  padding: 200%, 200%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+
+}
+  </style>
+</head>
+<body>
+
+  <h1>BoxBrowser</h1>
+
+  <div class="bar">
+    <input type="text" id="searchInput" placeholder="Search...">
+  </div>
+
+  <div class="search-button">
+    <button onclick="searchGoogle()">Search With Google</button>
+    <button onclick="searchBing()">Search with Bing</button>
+    <button onclick="searchYahoo()">Search with Yahoo</button>
+    <!-- Add more search engine buttons as needed -->
+  </div>
+
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const searchMenu = document.getElementById('searchMenu');
+
+    searchInput.addEventListener('contextmenu', function(event) {
+      event.preventDefault();
+      searchMenu.style.display = 'flex';
+      searchMenu.style.left = event.pageX + 'px';
+      searchMenu.style.top = event.pageY + 'px';
+    });
+
+    document.addEventListener('click', function(event) {
+      if (event.target !== searchInput) {
+        searchMenu.style.display = 'none';
+      }
+    });
+
+    function searchGoogle() {
+      const query = searchInput.value;
+      window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+    }
+
+    function searchBing() {
+      const query = searchInput.value;
+      window.open('https://www.bing.com/search?q=' + encodeURIComponent(query), '_blank');
+    }
+
+    function searchYahoo() {
+      const query = searchInput.value;
+      window.open('https://search.yahoo.com/search?p=' + encodeURIComponent(query), '_blank');
+    }
+    searchInput.addEventListener('keypress', function(event) {
+  if (event.key === 'Enter') {
+    const query = searchInput.value;
+    window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+  }
+});
+  </script>
+</body>
+</html>
