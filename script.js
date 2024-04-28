@@ -21,7 +21,7 @@ const searchInput = document.getElementById('searchInput');
 
     function searchScholar() {
        const query = searchInput.value;
-       window.open('scholar.google.com/scholar?q=' + encodeURIComponent(query) + '&bntG=';
+       window.open('scholar.google.com/scholar?q=' + encodeURIComponent(query) + '&bntG=', '_blank';
     }
 
     function searchBing() {
