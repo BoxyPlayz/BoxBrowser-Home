@@ -19,6 +19,11 @@ const searchInput = document.getElementById('searchInput');
       window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
     }
 
+    function searchScholar() {
+       const query = searchInput.value;
+       window.open('scholar.google.com/scholar?q=' + encodeURIComponent(query) + '&bntG=';
+    }
+
     function searchBing() {
       const query = searchInput.value;
       window.open('https://www.bing.com/search?q=' + encodeURIComponent(query), '_blank');
